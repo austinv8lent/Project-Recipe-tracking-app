@@ -5,7 +5,7 @@
 }
 
 label {
-  
+  display: inline-block;
   width: 100px;
 }
 
@@ -13,18 +13,10 @@ header {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
-img{
-  object-fit: scale-down;
-  width: 100%;
-}
-
-header{
+.heading {
   text-align: center;
+  font-family: 'Playfair Display SC', serif;
   font-size: 64px;
-}
-
-h1{
-  font-family: "Playfair Display SC";
 }
 
 /* typography */
@@ -42,6 +34,8 @@ th {
   padding: 10px;
 }
 
+
+
 td {
   letter-spacing: 1px;
   overflow-x:hidden;
@@ -50,7 +44,6 @@ td {
   padding: 10px;
   text-align: center;
 }
-
 
 /* table */
 
@@ -69,23 +62,28 @@ table {
   text-overflow: ellipsis;
 }
 
-tr:nth-child(odd){
-  background-color: #f2f2f2;
-}
-
 /* Column Size for thead */
-
-thead th:nth-child(1), tbody td:nth-child(1), 
-thead th:nth-child(2), tbody td:nth-child(2), 
-thead th:nth-child(3), tbody td:nth-child(3), 
-thead th:nth-child(6), tbody td:nth-child(6){
+th, td {
   width: 10%;
 }
 
+th:nth-child(4), th:nth-child(5),
+td:nth-child(4), td:nth-child(5) {
+  width: 30%;
+}
+.content_td img {
+  overflow-y: auto;
+  height: 100%;
+  max-height: 100px;
+  max-width: 100%;
+  object-fit: scale-down;
+}
 
 /* Column size for tbody */
+.content_row tr:nth-child(2n + 1) {
+  background-color: #ffeec9;
+}
 
-thead th:nth-child(4), tbody td:nth-child(4), 
-thead th:nth-child(5), tbody td:nth-child(5){
-  width: 30%;
+textarea {
+  min-width: 50%;
 }

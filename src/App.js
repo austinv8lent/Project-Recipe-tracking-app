@@ -5,28 +5,19 @@ import RecipeList from "./RecipeList";
 import RecipeData from "./RecipeData"
 
 function App() {
-  let [recipes, setRecipes] = useState(RecipeData);
-  let handleRecipe = (event) => setRecipes([...recipes, event]);
-  let deleteRecipe = (event) => {
-    let index = event.target.id;
-    let newArr = [];
-    for(let recipe in recipes){
-      if(recipe !== index){
-        newArr.push(recipes[recipe]);
-      }
-    }
-    setRecipes(newArr);
-  }
+  const [recipes, setRecipes] = useState(RecipeData);
 
   // TODO: Add the ability for the <RecipeList /> component to list and delete an existing recipe.
   // TODO: Add the ability for the <RecipeCreate /> component to create new recipes.
 
-  
+  const deleteRecipe = (recipeIndex) => setRecipes(recipes.filter((ignored, index) => index !== recipeIndex))
+  const createRecipe = (recipe) => setRecipes([...recipes, recipe])
+
   return (
     <div className="App">
-      <header><h1>Delicious Food Recipes</h1></header>
-      <RecipeList list={recipes} deleteRecipe={deleteRecipe}/>
-      <RecipeCreate createRecipe={handleRecipe} />
+      <header><h1 className="heading">Delicious Food Recipes</h1></header>
+      <RecipeList recipes={recipes} deleteRecipe={deleteRecipe}/>
+      <RecipeCreate createRecipe={createRecipe}/>
     </div>
   );
 }

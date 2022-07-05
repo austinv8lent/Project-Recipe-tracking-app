@@ -1,22 +1,19 @@
-import React from "react";
-
+import React from "react"
 
 function Recipe({recipe, index, deleteRecipe}) {
 
-    if(recipe){
-        const {name, cuisine, photo, ingredients, preparation} = recipe;
-    
-        return (
-            <tr key={index}>
-                <td key={name}>{name}</td>
-                <td key={cuisine}>{cuisine}</td>
-                <td key={photo}><img src={photo} alt=""/></td>
-                <td className="content_td" key={ingredients}><p>{ingredients}</p></td>
-                <td className="content_td" key={preparation}><p>{preparation}</p></td>
-                <td><button name="delete" id={index} onClick={deleteRecipe}>Delete</button></td>
-            </tr>
-        )
-    }
-  }
-  
-  export default Recipe;
+    const deleteHandler = () => deleteRecipe(index)
+
+    return (
+        <tr>
+            <td className="content_td"><p>{recipe.name}</p></td>
+            <td className="content_td"><p>{recipe.cuisine}</p></td>
+            <td className="content_td"><img src={recipe.photo} /></td>
+            <td className="content_td"><p>{recipe.ingredients}</p></td>
+            <td className="content_td"><p>{recipe.preparation}</p></td>
+            <td><button name="delete" onClick={deleteHandler}>Delete</button></td>
+        </tr>
+    )
+}
+
+export default Recipe
